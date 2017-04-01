@@ -4,7 +4,7 @@ LFLAGS = -Wall
 LIBS = -lm -lncurses
 
 all: main.o functions.o ui.o
-	$(CC) $(LFLAGS) -o main main.c functions.c ui.c $(LIBS)
+	$(CC) $(LFLAGS) -o main main.c functions.c ui.c linear.c $(LIBS)
 
 main.o: main.c main.h
 	$(CC) $(CFLAGS) main.c $(LIBS)
@@ -14,6 +14,9 @@ functions.o: functions.c functions.h
 
 ui.o: ui.c ui.h
 	$(CC) $(CFLAGS) ui.c $(LIBS)
+
+linear.o: linear.c linear.h
+	$(CC) $(CFLAGS) linear.c $(LIBS)
 
 run:
 	./main
