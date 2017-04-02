@@ -2,6 +2,7 @@
 
 int startx = 0;
 int starty = 0;
+char *ins = "z -> Theory, x -> Code, c -> Execute, q -> Back to the future";
 
 void print_in_middle(WINDOW *win, int starty, int startx, int width, char *string)
 {	int length, x, y;
@@ -92,4 +93,58 @@ int show_menu(char *menu[],int no_of_choices){
 	clrtoeol();
 	refresh();
 	return choice;
+}
+
+void theory(char *fp,char *string){
+	FILE *file;
+	int ch;
+
+	file = fopen(fp, "r");
+  	if(file == NULL)
+  	{
+    	perror("Cannot open file");
+    	exit(1);
+  	}
+	clear();
+	init(string);
+	while((ch = fgetc(file)) != EOF){
+		printw("%c",ch);
+	}
+	instruction();
+	fclose(file);
+}
+
+void instruction(){
+	move(23,40-(strlen(ins)/2));
+	printw("%s",ins);
+}
+
+void init(char *string){
+	move(0,40-(strlen(string)/2));
+	init_pair(1, COLOR_WHITE, COLOR_GREEN);
+	attron(COLOR_PAIR(1));
+	printw("%s",string);
+	attroff(COLOR_PAIR(1));
+
+	move(1,0);
+}
+
+void showfile(char *source,char *string){
+	FILE *file;
+	int ch;
+
+	file = fopen(source, "r");
+  	if(file == NULL)
+  	{
+    	perror("Cannot open file");
+    	exit(1);
+  	}
+	clear();
+	init(string);
+	while((ch = fgetc(file)) != EOF){
+		printw("%c",ch);
+
+	}
+	instruction();
+	fclose(file);
 }

@@ -1,20 +1,22 @@
 #include "linear.h"
 
+char *source_string = "algo/linear.txt";
+char *theory_string = "theory/linear.txt";
 char *string = "Linear Search";
-char *ins = "z -> Theory, x -> Code, c -> Execute, q -> Back to the future";
+
 
 void linear(){
 	int ch;
 	clear();
-	init();
+	init(string);
 	instruction();
 	
 	do{
 		ch = getch();
 		switch(ch){
-			case 'z':theory();
+			case 'z':theory(theory_string,string);
 						break;
-			case 'x':showfile();
+			case 'x':showfile(source_string,string);
 						break;
 			case 'c':execute();
 						break;
@@ -24,44 +26,9 @@ void linear(){
 	}while(ch!='q');
 }
 
-void instruction(){
-	move(23,40-(strlen(ins)/2));
-	printw("%s",ins);
-}
-
-void init(){
-	move(0,40-(strlen(string)/2));
-	init_pair(1, COLOR_WHITE, COLOR_GREEN);
-	attron(COLOR_PAIR(1));
-	printw("%s",string);
-	attroff(COLOR_PAIR(1));
-
-	move(1,0);
-}
-
-void showfile(){
-	FILE *file;
-	int ch;
-
-	file = fopen("algo/linear.txt", "r");
-  	if(file == NULL)
-  	{
-    	perror("Cannot open file");
-    	exit(1);
-  	}
-	clear();
-	init();
-	while((ch = fgetc(file)) != EOF){
-		printw("%c",ch);
-
-	}
-	instruction();
-	fclose(file);
-}
-
 void execute(){
 	clear();
-	init();
+	init(string);
 	echo();
 
 	//Logic of Linear Search
@@ -100,21 +67,3 @@ void execute(){
 
 }
 
-void theory(){
-	FILE *file;
-	int ch;
-
-	file = fopen("theory/linear.txt", "r");
-  	if(file == NULL)
-  	{
-    	perror("Cannot open file");
-    	exit(1);
-  	}
-	clear();
-	init();
-	while((ch = fgetc(file)) != EOF){
-		printw("%c",ch);
-	}
-	instruction();
-	fclose(file);
-}
