@@ -25,7 +25,7 @@ int n_search_choices = sizeof(search) / sizeof(char *);
 // Driving Function
 void show_windows(){
 	int choice;
-	choice = show_menu(choices,n_choices);
+	choice = show_menu(choices,n_choices,"DST Algorithms");
 	if(choice == 1){
 		display_search_menu();
 	}
@@ -33,7 +33,7 @@ void show_windows(){
 
 void display_search_menu(){
 	int choice;
-	choice = show_menu(search, n_search_choices);
+	choice = show_menu(search, n_search_choices,"Search");
 	switch(choice){
 		case 1:linear();
 				break;
@@ -43,9 +43,4 @@ void display_search_menu(){
 				break;
 		default:printw("Will not come to default ever!!!");
 	}
-}
-
-void binary(){
-	clear();
-	refresh();
 }

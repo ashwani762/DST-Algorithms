@@ -1,23 +1,23 @@
-#include "linear.h"
+#include "binary.h"
 
-char *source_linear = "algo/linear.txt";
-char *theory_linear = "theory/linear.txt";
-char *string_linear = "Linear Search";
+char *source_binary = "algo/linear.txt";
+char *theory_binary = "theory/linear.txt";
+char *string_binary = "Binary Search";
 
-void linear(){
+void binary(){
 	int ch;
 	clear();
-	init(string_linear);
+	init(string_binary);
 	instruction();
 	
 	do{
 		ch = getch();
 		switch(ch){
-			case 'z':theory(theory_linear, string_linear);
+			case 'z':theory(theory_binary, string_binary);
 						break;
-			case 'x':showfile(source_linear, string_linear);
+			case 'x':showfile(source_binary, string_binary);
 						break;
-			case 'c':linear_execute();
+			case 'c':binary_execute();
 						break;
 			case 'q':display_search_menu();
 		}
@@ -25,9 +25,9 @@ void linear(){
 	}while(ch!='q');
 }
 
-void linear_execute(){
+void binary_execute(){
 	clear();
-	init(string_linear);
+	init(string_binary);
 	echo();
 
 	//Logic of Linear Search

@@ -44,8 +44,9 @@ void print_menu(WINDOW *menu_win,int highlight, char *choice[],int choices){
 }
 
 
-int show_menu(char *menu[],int no_of_choices){
+int show_menu(char *menu[],int no_of_choices,char *string){
 	clear();
+	init(string);
 	WINDOW *menu_win;
 	int highlight = 1;
 	int choice = 0;

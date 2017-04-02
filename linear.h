@@ -2,4 +2,4 @@
 
 
 void linear();
-void execute();
+void linear_execute();
