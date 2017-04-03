@@ -44,3 +44,4 @@ void display_search_menu(){
 		default:printw("Will not come to default ever!!!");
 	}
 }
+

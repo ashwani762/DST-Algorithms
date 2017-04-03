@@ -12,3 +12,4 @@ void theory(char *fp,char *string);
 void instruction();
 void init(char *string);
 void showfile(char *source, char *string);
+void call(char *string,char *theory_string,char *source_string,void (*execute)(),void (*menu)());

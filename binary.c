@@ -4,6 +4,7 @@ char *source_binary = "algo/linear.txt";
 char *theory_binary = "theory/linear.txt";
 char *string_binary = "Binary Search";
 
+
 void binary(){
 	int ch;
 	clear();

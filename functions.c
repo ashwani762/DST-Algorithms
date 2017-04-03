@@ -149,3 +149,24 @@ void showfile(char *source,char *string){
 	instruction();
 	fclose(file);
 }
+
+void call(char *string,char *theory_string,char *source_string,void (*execute)(),void (*menu)()){
+	int ch;
+	clear();
+	init(string);
+	instruction();
+	
+	do{
+		ch = getch();
+		switch(ch){
+			case 'z':theory(theory_string, string);
+						break;
+			case 'x':showfile(source_string, string);
+						break;
+			case 'c':(*execute)();
+						break;
+			case 'q':(*menu)();
+		}
+
+	}while(ch!='q');
+}

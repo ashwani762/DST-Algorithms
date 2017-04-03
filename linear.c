@@ -1,28 +1,13 @@
 #include "linear.h"
 
+
 char *source_linear = "algo/linear.txt";
 char *theory_linear = "theory/linear.txt";
 char *string_linear = "Linear Search";
+extern void display_search_menu();
 
 void linear(){
-	int ch;
-	clear();
-	init(string_linear);
-	instruction();
-	
-	do{
-		ch = getch();
-		switch(ch){
-			case 'z':theory(theory_linear, string_linear);
-						break;
-			case 'x':showfile(source_linear, string_linear);
-						break;
-			case 'c':linear_execute();
-						break;
-			case 'q':display_search_menu();
-		}
-
-	}while(ch!='q');
+	call(string_linear,theory_linear,source_linear,linear_execute,display_search_menu);
 }
 
 void linear_execute(){
